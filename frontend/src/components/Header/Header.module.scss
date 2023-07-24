@@ -1,0 +1,28 @@
+.header {
+    align-items: center;
+    display: flex;
+    font-family: 'RobotoLight';
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1340px;
+
+    .category {
+        width: 40%;
+    }
+
+    .links {
+        width: 40%;
+    }
+
+    ul {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .logo {
+        img {
+            width: 120px;
+        }
+    }    
+}
