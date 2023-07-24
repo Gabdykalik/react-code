@@ -1,0 +1,21 @@
+.footer {
+    background-color: #fbf5f0;
+
+    .container {
+        display: flex;
+        font-family: 'RobotoLight';
+        justify-content: space-between;
+        margin: 0 auto;
+        max-width: 1340px;
+        padding-top: 75px;
+        padding-bottom: 75px;
+
+        .item {
+            line-height: 175%;
+        }
+
+        img {
+            width: 120px;
+        }
+    }
+}
