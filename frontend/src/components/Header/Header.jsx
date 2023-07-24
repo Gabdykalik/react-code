@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import style from './Header.module.scss';
-import logo from '../../assets/images/logo.jpg';
+import logo from '../../assets/images/logo.png';
 
 const Header = () => {
     return (
@@ -30,9 +30,9 @@ const Header = () => {
                 </ul>
             </div>
             <div className={style.logo}>
-                <a href="#">
+                <Link to={'/'}>
                     <img src={logo} alt="" />
-                </a>
+                </Link>
             </div>
             <div className={style.links}>
                 <ul>
@@ -43,12 +43,17 @@ const Header = () => {
                     </li>
                     <li>
                         <a href="#">
-                            Контакты
+                            Новости
                         </a>
                     </li>
                     <li>
                         <a href="#">
                             Закрытый клуб
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Контакты
                         </a>
                     </li>
                     <li>
