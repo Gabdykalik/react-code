@@ -1,0 +1,20 @@
+<div class="container-fluid p-0">
+  <%= render partial: 'admin/partials/sidebar'%>
+  <div class="main">
+    <%= render partial: 'admin/partials/header'%>
+    <div class="orders">
+      <%= form_with model: @category, url: admin_categories_path(@category), method: :patch do |form| %>
+        <div class="mb-3">
+          <%= form.label "Название", class: "form-label" %>
+          <%= form.text_field :name, class: "form-control form-field", disabled: true %>
+        </div>
+      <% end %>
+
+      <%= link_to "Изменить", edit_admin_category_path(@category), class: "btn btn-primary" %>
+      <%= link_to "Удалить", admin_category_path(@category), data: {
+          turbo_method: :delete,
+          turbo_confirm: "Вы уверены?",
+      }, class: "btn btn-danger" %>
+    </div>
+  </div>
+</div>

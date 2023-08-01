@@ -26,6 +26,26 @@ const sheets = {
             img: banner1,
             name: "Белье желтое",
             price: "500"
+        },
+        {
+            img: banner1,
+            name: "Белье красное",
+            price: "500"
+        },
+        {
+            img: banner1,
+            name: "Белье желтое",
+            price: "500"
+        },
+        {
+            img: banner1,
+            name: "Белье красное",
+            price: "500"
+        },
+        {
+            img: banner1,
+            name: "Белье желтое",
+            price: "500"
         }
     ]
 }

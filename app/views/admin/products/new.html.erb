@@ -1,18 +1,7 @@
 <div class="container-fluid p-0">
-  <div class="sidebar">
-    <div class="logo__wrapper">
-      <div class="logo">
-        <%= link_to 'Some company', '/admin/products' %>
-      </div>
-    </div>
-    <div class="menu">
-      hello
-    </div>
-  </div>
+  <%= render partial: 'admin/partials/sidebar'%>
   <div class="main">
-    <header class="header">
-      company
-    </header>
+    <%= render partial: 'admin/partials/header'%>
     <div class="orders">
       <%= form_with(model: [:admin, @product], local: true, multipart: true) do |form| %>
         <div>
@@ -45,11 +34,8 @@
         </div>
 
         <div>
-          <%= form.label 'Категория', class: "form-label" %><br>
-          <%= form.text_area :category, class: "form-control" %><br>
-          <% @product.errors.full_messages_for(:category).each do |message| %>
-            <div><%= message %></div>
-          <% end %>
+          <%= form.label 'Категория', class: 'form-label' %>
+          <%= form.collection_select :category_id, Category.all, :id, :name, prompt: 'Выберите категорию' %>
         </div>
 
         <div>

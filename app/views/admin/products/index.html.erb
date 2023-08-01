@@ -1,18 +1,7 @@
 <div class="container-fluid p-0">
-  <div class="sidebar">
-    <div class="logo__wrapper">
-      <div class="logo">
-        <%= link_to 'Some company', '/admin/products' %>
-      </div>
-    </div>
-    <div class="menu">
-      hello
-    </div>
-  </div>
+  <%= render partial: 'admin/partials/sidebar'%>
   <div class="main">
-    <header class="header">
-      company
-    </header>
+    <%= render partial: 'admin/partials/header'%>
     <div class="orders">
       <%= link_to "Добавить", new_admin_product_path, class: "btn btn-primary mb-3" %>
       <table class="table">
@@ -36,7 +25,7 @@
             </th>
             <td><%= product.body %></td>
             <td><%= product.price %></td>
-            <td><%= product.category %></td>
+            <td><%= product.category.name if product.category %></td>
             <td><%= product.quantity %></td>
             <td><%= product.updated_at.strftime("%d.%m.%Y | %H:%M") %></td>
           </tr>

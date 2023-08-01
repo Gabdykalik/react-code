@@ -1,0 +1,27 @@
+<div class="container-fluid p-0">
+  <%= render partial: 'admin/partials/sidebar'%>
+  <div class="main">
+    <%= render partial: 'admin/partials/header'%>
+    <div class="orders">
+      <%= link_to "Добавить", new_admin_category_path, class: "btn btn-primary mb-3" %>
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">Название</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @categories.each do |category| %>
+          <tr>
+            <th>
+              <a href="<%= admin_category_path(category) %>">
+                <%= category.name %>
+              </a>
+            </th>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
