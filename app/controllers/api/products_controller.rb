@@ -1,7 +1,7 @@
 class Api::ProductsController < ApplicationController
   def index
     @products = Product.all
-    render json: @products, each_serializer: ProductSerializer
+    render json: products_json(@products)
   end
 
   def show
@@ -12,6 +12,10 @@ class Api::ProductsController < ApplicationController
   end
 
   private
+
+  def products_json(products)
+    products.map { |product| product_json(product) }
+  end
 
   def product_json(product)
     {

@@ -14,9 +14,6 @@ class Admin::ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
 
-    pp '******'
-    pp params[:product][:image]
-
     if params[:product][:image].present?
       @product.image.attach(params[:product][:image])
     end

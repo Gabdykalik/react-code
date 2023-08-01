@@ -112,7 +112,7 @@ const Products = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        const backendUrl = 'http://127.0.0.1:3000/api/products/7';
+        const backendUrl = 'http://127.0.0.1:3000/api/products/';
     
         axios.get(backendUrl, { withCredentials: true })
           .then(response => setProducts(response.data))
