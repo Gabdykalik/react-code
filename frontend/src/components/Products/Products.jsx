@@ -1,3 +1,5 @@
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import ProductsItem from '../ProductsItem/ProductsItem';
 import style from './Products.module.scss';
 import banner1 from '../../assets/images/banner1.jpeg'
@@ -107,12 +109,25 @@ const blanket = {
 }
 
 const Products = () => {
-    return(
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        const backendUrl = 'http://127.0.0.1:3000/api/products/7';
+    
+        axios.get(backendUrl, { withCredentials: true })
+          .then(response => setProducts(response.data))
+          .catch(error => console.error('Error fetching products:', error));
+      }, []);
+    
+
+    console.log(products)
+
+    return (
         <div className={style.products}>
-            <ProductsItem products={sheets}/>
+            <ProductsItem products={sheets} />
             <ProductsItem products={plaid} />
-            <ProductsItem products={kitchen}/>
-            <ProductsItem products={blanket}/> 
+            <ProductsItem products={kitchen} />
+            <ProductsItem products={blanket} />
         </div>
     )
 }

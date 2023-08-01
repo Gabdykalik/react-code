@@ -14,7 +14,7 @@
       company
     </header>
     <div class="orders">
-      <%= form_with model: [:admin, @product] do |form| %>
+      <%= form_with model: [:admin, @product], multipart: true do |form| %>
         <div>
           <%= form.label 'Название', class: "form-label" %><br>
           <%= form.text_field :name, class: "form-control" %>
@@ -27,7 +27,7 @@
           <% @product.images.each do |image| %>
             <div>
               <%= image_tag image, width: '100px', height: '100px' %>
-              <%= form.check_box :_destroy, {}, image.id, false %>
+              <%= check_box_tag "product[images_to_delete][]", image.id %>
               <%= form.label "remove_#{image.id}", 'Remove' %>
             </div>
           <% end %>
