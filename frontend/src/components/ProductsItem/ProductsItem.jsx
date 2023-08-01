@@ -4,11 +4,12 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 const ProductsItem = (props) => {
-    if (props.products) {
+    console.log(props.products)
+    if (props.category) {
         return (
             <div className={style.productsItem}>
                 <div className={style.title}>
-                    {props.products.title}
+                    {props.category}
                 </div>
 
                 <Swiper slidesPerView={1}
@@ -33,12 +34,13 @@ const ProductsItem = (props) => {
                     }}
                     className={style.products}
                 >
-                    {props.products.products.map((product) => {
+                    {props.products.map((product) => {
+                        if (product.category.name === props.category) {
                         return (
                             <SwiperSlide>
                                 <Link to={'/product/:id'} key={product.name} className={style.item}>
                                     <div>
-                                        <img src={product.img} alt="" />
+                                        <img src={product.image_urls} alt="" />
                                     </div>
                                     <div className={style.name}>
                                         {product.name}
@@ -49,6 +51,7 @@ const ProductsItem = (props) => {
                                 </Link>
                             </SwiperSlide>
                         )
+                        }
                     })}
                 </Swiper>
             </div>
