@@ -4,7 +4,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 const ProductsItem = (props) => {
-    console.log(props.products)
     if (props.category) {
         return (
             <div className={style.productsItem}>
@@ -38,7 +37,7 @@ const ProductsItem = (props) => {
                         if (product.category.name === props.category) {
                         return (
                             <SwiperSlide>
-                                <Link to={'/product/:id'} key={product.name} className={style.item}>
+                                <Link to={`/product/${product.id}`} key={product.name} className={style.item}>
                                     <div>
                                         <img src={product.image_urls} alt="" />
                                     </div>
