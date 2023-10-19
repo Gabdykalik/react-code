@@ -1,0 +1,41 @@
+<div class="container-fluid p-0">
+  <%= render partial: 'admin/partials/sidebar'%>
+  <div class="main">
+    <%= render partial: 'admin/partials/header'%>
+    <div class="orders">
+      <%= form_with model: @product, url: admin_product_path(@product), method: :patch do |form| %>
+        <div class="mb-3">
+          <%= form.label "Название", class: "form-label" %>
+          <%= form.text_field :name, class: "form-control form-field", disabled: true %>
+        </div>
+
+        <% @product.images.each do |image| %>
+          <%= image_tag image %>
+        <% end %>
+
+        <div class="mb-3">
+          <%= form.label "Описание", class: "form-label" %>
+          <%= form.text_area :body, class: "form-control form-field", rows: 3, disabled: true %>
+        </div>
+        <div class="mb-3">
+          <%= form.label 'Цена', class: "form-label" %>
+          <%= form.text_field :price, class: "form-control form-field", disabled: true %>
+        </div>
+        <div class="mb-3">
+          <%= form.label 'Категория', class: "form-label" %>
+          <%= form.text_field :category_id, class: "form-control form-field", disabled: true, value: @product.category&.name %>
+        </div>
+        <div class="mb-3">
+          <%= form.label 'Количество', class: "form-label" %>
+          <%= form.text_field :quantity, class: "form-control form-field", disabled: true %>
+        </div>
+      <% end %>
+
+      <%= link_to "Изменить", edit_admin_product_path(@product), class: "btn btn-primary" %>
+      <%= link_to "Удалить", admin_product_path(@product), data: {
+          turbo_method: :delete,
+          turbo_confirm: "Вы уверены?",
+      }, class: "btn btn-danger" %>
+    </div>
+  </div>
+</div>

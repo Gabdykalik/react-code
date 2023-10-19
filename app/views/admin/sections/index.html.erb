@@ -1,0 +1,37 @@
+<div class="container-fluid p-0">
+  <%= render partial: 'admin/partials/sidebar'%>
+  <div class="main">
+    <%= render partial: 'admin/partials/header'%>
+    <div class="orders">
+      <%= link_to "Добавить", new_admin_product_path, class: "btn btn-primary mb-3" %>
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">Название</th>
+          <th scope="col">Описание</th>
+          <th scope="col">Цена</th>
+          <th scope="col">Категория</th>
+          <th scope="col">Количество</th>
+          <th scope="col">Дата добавления</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @products.each do |product| %>
+          <tr>
+            <th>
+              <a href="<%= admin_product_path(product) %>">
+              <%= product.name %>
+              </a>
+            </th>
+            <td><%= product.body %></td>
+            <td><%= product.price %></td>
+            <td><%= product.category.name if product.category %></td>
+            <td><%= product.quantity %></td>
+            <td><%= product.updated_at.strftime("%d.%m.%Y | %H:%M") %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

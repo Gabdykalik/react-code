@@ -29,6 +29,16 @@ const cartReducer = (state = initialState, action) => {
         items: action.payload,
       };
 
+    case 'REMOVE_FROM_CART':
+      const removedProductId = action.payload;
+      const updatedItemsCopy = { ...state.items };
+      delete updatedItemsCopy[removedProductId];
+      localStorage.setItem('cartItems', JSON.stringify(updatedItemsCopy));
+      return {
+        ...state,
+        items: updatedItemsCopy,
+      };
+
     // Другие case...
     default:
       return state;

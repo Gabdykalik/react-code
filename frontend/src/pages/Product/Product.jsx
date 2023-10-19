@@ -21,7 +21,7 @@ const Product = () => {
     const backendUrl = `http://127.0.0.1:3000/api/products/${params.id}`;
 
     axios.get(backendUrl, {withCredentials: true})
-      .then(response => setProduct(response.data))
+      .then(response => setProduct(response.data[0]))
       .catch(error => console.error('Error fetching products:', error));
   }, []);
 

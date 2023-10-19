@@ -29,6 +29,8 @@
     <orderEntry type="jdk" jdkName="Remote-rvm: ruby-3.2.2 (-p53" jdkType="RUBY_SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="addressable (v2.8.4, Remote-rvm: ruby-3.2.2 (-p53) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bindex (v0.8.1, Remote-rvm: ruby-3.2.2 (-p53) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bootstrap (v5.2.3, Remote-rvm: ruby-3.2.2 (-p53) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v2.4.10, Remote-rvm: ruby-3.2.2 (-p53) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="io-console (v0.6.0, Remote-rvm: ruby-3.2.2 (-p53) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="matrix (v0.4.2, Remote-rvm: ruby-3.2.2 (-p53) [gem]" level="application" />

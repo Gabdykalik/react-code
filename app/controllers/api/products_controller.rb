@@ -5,8 +5,10 @@ class Api::ProductsController < ApplicationController
   end
 
   def show
-    product = Product.find(params[:id])
-    render json: product_json(product)
+    product_ids = JSON.parse(params[:id])
+
+    products = Product.where(id: product_ids)
+    render json: products_json(products)
   rescue ActiveRecord::RecordNotFound
     render json: { error: 'Product not found' }, status: :not_found
   end

@@ -3,6 +3,7 @@ import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
 import Products from '../../components/Products/Products';
 import style from './Home.module.scss';
+import Advantages from "../../components/Advantages/Advantages";
 
 const Home = () => {
     return(
@@ -10,6 +11,7 @@ const Home = () => {
             <Header />
             <Banner />
             <Products />
+            <Advantages />
             <Footer />
         </div>
     )
