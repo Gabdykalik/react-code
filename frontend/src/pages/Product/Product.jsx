@@ -49,6 +49,10 @@ const Product = () => {
     // Вызываем действие addToCart с id товара и количеством
     dispatch(addToCart(product?.id, count));
   };
+
+  function createMarkup() {
+    return {__html: product?.body};
+  }
   return (
     <div>
       <Header/>
@@ -72,8 +76,8 @@ const Product = () => {
           <div className={style.price}>
             ${product?.price}
           </div>
-          <div className={style.body}>
-            {product?.body}
+          <div className={style.body} dangerouslySetInnerHTML={createMarkup()}>
+
           </div>
           <div className={style.btns}>
             <div className={style.cartCount}>

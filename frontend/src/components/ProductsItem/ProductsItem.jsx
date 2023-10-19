@@ -38,8 +38,10 @@ const ProductsItem = (props) => {
                         return (
                             <SwiperSlide>
                                 <Link to={`/product/${product.id}`} key={product.name} className={style.item}>
-                                    <div>
-                                        <img src={product.image_urls} alt="" />
+                                    <div
+                                      style={{backgroundImage: `url(${product.image_urls})`}}
+                                    className={style.img}
+                                    >
                                     </div>
                                     <div className={style.name}>
                                         {product.name}

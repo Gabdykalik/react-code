@@ -33,9 +33,12 @@
                 text-align: center;
             }
     
-            img {
-                height: 385px;
-                width: 310px;
+            .img {
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                height: 21vw;
+                width: 100%;
             }
         }
     }    
