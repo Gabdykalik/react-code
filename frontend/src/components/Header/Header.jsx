@@ -2,17 +2,26 @@ import {Link} from 'react-router-dom';
 import style from './Header.module.scss';
 import logo from '../../assets/images/logo.png';
 import {useSelector} from 'react-redux';
+import {useEffect, useState} from "react";
+import axios from "axios";
 
 const Header = (props) => {
+  const [sections, setSections] = useState([])
+
   const cartItems = useSelector((state) => state.cart.items);
   let cartCount = 0;
   for (const productId in cartItems) {
     cartCount += cartItems[productId];
   }
 
-  const cartItemsCount = () => {
-    console.log(cartItems)
-  }
+  useEffect(() => {
+    const backendUrl = 'http://127.0.0.1:3000/api/sections/';
+
+    axios.get(backendUrl, { withCredentials: true })
+      .then(response => setSections(response.data))
+      .catch(error => console.error('Error fetching products:', error));
+  }, []);
+
 
   return (
     <header className={style.header}>
@@ -48,25 +57,19 @@ const Header = (props) => {
       <div className={style.links}>
         <ul>
           <li>
-            <Link to={'/about'}>
-              О нас
-            </Link>
-          </li>
-          <li>
             <a href="#">
               Новости
             </a>
           </li>
-          <li>
-            <a href="#">
-              Закрытый клуб
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              Контакты
-            </a>
-          </li>
+          {sections.map((section)=> {
+            return(
+              <li>
+                <Link to={`/section/${section.id}`}>
+                  {section.title}
+                </Link>
+              </li>
+            )
+          })}
           <li>
             <a href="#">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -84,7 +87,7 @@ const Header = (props) => {
                   d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
               </svg>
             </Link>
-            <div className={style.cartCount} onClick={cartItemsCount}>
+            <div className={style.cartCount}>
               {cartCount}
             </div>
           </li>
