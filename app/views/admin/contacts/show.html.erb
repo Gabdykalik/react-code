@@ -1,0 +1,61 @@
+<div class="container-fluid p-0">
+  <%= render partial: 'admin/partials/sidebar'%>
+  <div class="main">
+    <%= render partial: 'admin/partials/header'%>
+    <div class="orders">
+      <%= form_with model: @contact, url: admin_contact_path(@contact), method: :patch do |form| %>
+        <div class="mb-3">
+          <%= form.label "Описание", class: "form-label" %>
+          <%= form.text_area :body, class: "form-control form-field", rows: 10, disabled: true %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label "Телефон 1", class: "form-label" %>
+          <%= form.text_field :tel1, class: "form-control form-field", disabled: true %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label "Телефон 2", class: "form-label" %>
+          <%= form.text_field :tel2, class: "form-control form-field", disabled: true %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label "Телефон 3", class: "form-label" %>
+          <%= form.text_field :tel3, class: "form-control form-field", disabled: true %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label "Email", class: "form-label" %>
+          <%= form.text_field :email, class: "form-control form-field", disabled: true %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label "Email 2", class: "form-label" %>
+          <%= form.text_field :email2, class: "form-control form-field", disabled: true %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label "Whatsapp", class: "form-label" %>
+          <%= form.text_field :whatsapp, class: "form-control form-field", disabled: true %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label "Telegram", class: "form-label" %>
+          <%= form.text_field :telegram, class: "form-control form-field", disabled: true %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label "Instagram", class: "form-label" %>
+          <%= form.text_field :instagram, class: "form-control form-field", disabled: true %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label "Address", class: "form-label" %>
+          <%= form.text_field :address, class: "form-control form-field", disabled: true %>
+        </div>
+      <% end %>
+
+      <%= link_to "Изменить", edit_admin_contact_path(@contact), class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>

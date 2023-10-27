@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  gap: 50px;
+  margin: 50px auto;
+  max-width: 1340px;
+
+  .item {
+    width: 30%;
+
+    .img {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 15vw;
+      width: 100%;
+    }
+
+    .main {
+      padding: 30px;
+
+      .title {
+        font-size: 1.5em;
+      }
+
+      .date {
+        font-weight: 300;
+        margin-top: 7px;
+      }
+
+      .info {
+        font-weight: 300;
+        margin-top: 10px;
+        word-wrap: break-word;
+      }
+
+      .link {
+        font-size: .9em;
+        font-weight: 300;
+        margin-top: 10px;
+        text-decoration: underline;
+      }
+    }
+  }
+}

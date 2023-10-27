@@ -57,9 +57,9 @@ const Header = (props) => {
       <div className={style.links}>
         <ul>
           <li>
-            <a href="#">
+            <Link to={'/news'}>
               Новости
-            </a>
+            </Link>
           </li>
           {sections.map((section)=> {
             return(
@@ -70,6 +70,11 @@ const Header = (props) => {
               </li>
             )
           })}
+          <li>
+            <Link to={'/contacts'}>
+              Контакты
+            </Link>
+          </li>
           <li>
             <a href="#">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"

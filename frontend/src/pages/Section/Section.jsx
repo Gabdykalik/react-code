@@ -17,8 +17,6 @@ const Section = () => {
       .catch(error => console.error('Error fetching products:', error));
   }, [params.id]);
 
-  console.log(section)
-
   function createMarkup() {
     return {__html: section?.body};
   }

@@ -1,0 +1,29 @@
+<div class="container-fluid p-0">
+  <%= render partial: 'admin/partials/sidebar'%>
+  <div class="main">
+    <%= render partial: 'admin/partials/header'%>
+    <div class="orders">
+      <%= link_to "Добавить", new_admin_contact_path, class: "btn btn-primary mb-3" %>
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">Название</th>
+          <th scope="col">Описание</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @contacts.each do |contact| %>
+          <tr>
+            <th>
+              <a href="<%= admin_contact_path(contact) %>">
+              <%= contact.body %>
+              </a>
+            </th>
+            <td><%= contact.body %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

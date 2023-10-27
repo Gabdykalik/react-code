@@ -1,0 +1,15 @@
+.container {
+  font-weight: 300;
+  margin: 50px auto;
+  max-width: 1340px;
+
+  .social {
+    align-items: center;
+    display: flex;
+    margin-top: 10px;
+    
+    .socialItem {
+      cursor: pointer;
+    }
+  }
+}

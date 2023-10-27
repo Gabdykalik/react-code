@@ -1,0 +1,43 @@
+<div class="container-fluid p-0">
+  <%= render partial: 'admin/partials/sidebar'%>
+  <div class="main">
+    <%= render partial: 'admin/partials/header'%>
+    <div class="orders">
+      <%= form_with(model: [:admin, @news], local: true, multipart: true) do |form| %>
+        <div>
+          <%= form.label 'Название', class: "form-label" %><br>
+          <%= form.text_field :title, class: "form-control" %>
+          <% @news.errors.full_messages_for(:title).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
+
+        <div>
+          <%= form.label 'Images', class: 'form-label' %>
+          <%= form.file_field :images, multiple: true, class: 'form-control' %>
+        </div>
+
+        <div>
+          <%= form.label 'Описание', class: "form-label" %><br>
+          <%= form.text_area :body, class: "form-control" %><br>
+          <% @news.errors.full_messages_for(:body).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
+
+        <div>
+          <%= form.label 'Информация', class: "form-label" %><br>
+          <%= form.text_area :info, class: "form-control" %><br>
+          <% @news.errors.full_messages_for(:info).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
+
+        <div>
+          <%= form.submit "Сохранить", class: "btn btn-primary mb-3" %>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>

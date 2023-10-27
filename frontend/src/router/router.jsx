@@ -4,6 +4,9 @@ import About from '../pages/About/About';
 import Product from "../pages/Product/Product";
 import Cart from "../pages/Cart/Cart";
 import Section from "../pages/Section/Section";
+import News from "../pages/News/News";
+import SingleNews from "../pages/SingleNews/SingleNews";
+import Contacts from "../pages/Contacts/Contacts";
 
 const Router = () => {
   return (
@@ -14,6 +17,9 @@ const Router = () => {
         <Route path='/product/:id' element={<Product/>}/>
         <Route path='/cart' element={<Cart/>}/>
         <Route path='/section/:id' element={<Section/>}/>
+        <Route path='/news' element={<News/>}/>
+        <Route path='/news/:id' element={<SingleNews/>}/>
+        <Route path='/contacts' element={<Contacts/>}/>
       </Routes>
     </BrowserRouter>
   )
